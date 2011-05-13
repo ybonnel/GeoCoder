@@ -16,7 +16,40 @@
 					<target>1.6</target>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<links>
+						<link>http://java.sun.com/j2se/1.6.0/docs/api/</link>
+					</links>
+					<version>true</version>
+					<show>public</show>
+				</configuration>
+			</plugin>
 		</plugins>
+
 	</build>
 	<dependencies>
 		<dependency>
@@ -38,4 +71,14 @@
 			<url>https://github.com/ybonnel/ybonnel-mvn-repo/raw/master/releases</url>
 		</repository>
 	</repositories>
+	<distributionManagement>
+		<repository>
+			<id>repo</id>
+			<url>https://github.com/ybonnel/ybonnel-mvn-repo/raw/master/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshot-repo</id>
+			<url>https://github.com/ybonnel/ybonnel-mvn-repo/raw/master/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
 </project>
